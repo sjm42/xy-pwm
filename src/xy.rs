@@ -70,6 +70,11 @@ impl Drawing {
         self
     }
 }
+impl Default for Drawing {
+    fn default() -> Self {
+        Self::new()
+    }
+}
 
 impl<'a> IntoIterator for &'a Element {
     type Item = Vec2;

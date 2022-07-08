@@ -504,8 +504,8 @@ mod app {
     }
 
     #[task(priority = 1, capacity = 2, shared=[serial_tx])]
-    fn draw(cx: draw::Context) {
-        let mut tx = cx.shared.serial_tx;
+    fn draw(_cx: draw::Context) {
+        // let mut tx = cx.shared.serial_tx;
         unsafe {
             if DRW_ITER.is_none() {
                 // tx.lock(|tx| write!(tx, "draw iter start.\r\n").ok());
