@@ -1,0 +1,1257 @@
++ cargo build --release --no-default-features --features black_pill --target thumbv7em-none-eabihf
+   Compiling num-traits v0.2.15
+   Compiling cortex-m-rtic v1.1.3
+   Compiling stm32f4xx-hal v0.13.2
+error[E0463]: can't find crate for `std`
+  --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/lib.rs:21:1
+   |
+21 | extern crate std;
+   | ^^^^^^^^^^^^^^^^^ can't find crate
+   |
+   = note: the `thumbv7em-none-eabihf` target may not support the standard library
+   = help: consider building the standard library from source with `cargo build -Zbuild-std`
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:816:15
+     |
+816  |         Self::floor(self) -> Self;
+     |               ^^^^^ multiple `floor` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:817:15
+     |
+817  |         Self::ceil(self) -> Self;
+     |               ^^^^ multiple `ceil` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:818:15
+     |
+818  |         Self::round(self) -> Self;
+     |               ^^^^^ multiple `round` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:819:15
+     |
+819  |         Self::trunc(self) -> Self;
+     |               ^^^^^ multiple `trunc` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:820:15
+     |
+820  |         Self::fract(self) -> Self;
+     |               ^^^^^ multiple `fract` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:821:15
+     |
+821  |         Self::abs(self) -> Self;
+     |               ^^^ multiple `abs` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:822:15
+     |
+822  |         Self::signum(self) -> Self;
+     |               ^^^^^^ multiple `signum` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:828:15
+     |
+828  |         Self::powi(self, n: i32) -> Self;
+     |               ^^^^ multiple `powi` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:919:15
+     |
+919  |         Self::floor(self) -> Self;
+     |               ^^^^^ multiple `floor` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:920:15
+     |
+920  |         Self::ceil(self) -> Self;
+     |               ^^^^ multiple `ceil` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:921:15
+     |
+921  |         Self::round(self) -> Self;
+     |               ^^^^^ multiple `round` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:922:15
+     |
+922  |         Self::trunc(self) -> Self;
+     |               ^^^^^ multiple `trunc` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:923:15
+     |
+923  |         Self::fract(self) -> Self;
+     |               ^^^^^ multiple `fract` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:924:15
+     |
+924  |         Self::abs(self) -> Self;
+     |               ^^^ multiple `abs` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:925:15
+     |
+925  |         Self::signum(self) -> Self;
+     |               ^^^^^^ multiple `signum` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:931:15
+     |
+931  |         Self::powi(self, n: i32) -> Self;
+     |               ^^^^ multiple `powi` found
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `forward` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1928:23
+     |
+1928 |                 Self::floor(self) -> Self;
+     |                       ^^^^^ multiple `floor` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1929:23
+     |
+1929 |                 Self::ceil(self) -> Self;
+     |                       ^^^^ multiple `ceil` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1930:23
+     |
+1930 |                 Self::round(self) -> Self;
+     |                       ^^^^^ multiple `round` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1931:23
+     |
+1931 |                 Self::trunc(self) -> Self;
+     |                       ^^^^^ multiple `trunc` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1932:23
+     |
+1932 |                 Self::fract(self) -> Self;
+     |                       ^^^^^ multiple `fract` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1933:23
+     |
+1933 |                 Self::abs(self) -> Self;
+     |                       ^^^ multiple `abs` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1934:23
+     |
+1934 |                 Self::signum(self) -> Self;
+     |                       ^^^^^^ multiple `signum` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1939:23
+     |
+1939 |                 Self::powi(self, n: i32) -> Self;
+     |                       ^^^^ multiple `powi` found
+...
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:810:5
+     |
+810  | /     forward! {
+811  | |         Self::is_nan(self) -> bool;
+812  | |         Self::is_infinite(self) -> bool;
+813  | |         Self::is_finite(self) -> bool;
+...    |
+830  | |         Self::to_radians(self) -> Self;
+831  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f32`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2060:1
+     |
+2060 | float_impl_std!(f32 integer_decode_f32);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1928:23
+     |
+1928 |                 Self::floor(self) -> Self;
+     |                       ^^^^^ multiple `floor` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1929:23
+     |
+1929 |                 Self::ceil(self) -> Self;
+     |                       ^^^^ multiple `ceil` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1930:23
+     |
+1930 |                 Self::round(self) -> Self;
+     |                       ^^^^^ multiple `round` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1931:23
+     |
+1931 |                 Self::trunc(self) -> Self;
+     |                       ^^^^^ multiple `trunc` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1932:23
+     |
+1932 |                 Self::fract(self) -> Self;
+     |                       ^^^^^ multiple `fract` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1933:23
+     |
+1933 |                 Self::abs(self) -> Self;
+     |                       ^^^ multiple `abs` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1934:23
+     |
+1934 |                 Self::signum(self) -> Self;
+     |                       ^^^^^^ multiple `signum` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0034]: multiple applicable items in scope
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:1939:23
+     |
+1939 |                 Self::powi(self, n: i32) -> Self;
+     |                       ^^^^ multiple `powi` found
+...
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     |
+note: candidate #1 is defined in an impl of the trait `FloatCore` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |               fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:913:5
+     |
+913  | /     forward! {
+914  | |         Self::is_nan(self) -> bool;
+915  | |         Self::is_infinite(self) -> bool;
+916  | |         Self::is_finite(self) -> bool;
+...    |
+933  | |         Self::to_radians(self) -> Self;
+934  | |     }
+     | |_____- in this macro invocation
+note: candidate #2 is defined in an impl of the trait `Float` for the type `f64`
+    --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/macros.rs:9:13
+     |
+9    |             fn $method(self $( , $arg : $ty )* ) -> $ret {
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/float.rs:2062:1
+     |
+2062 | float_impl_std!(f64 integer_decode_f64);
+     | --------------------------------------- in this macro invocation
+     = note: this error originates in the macro `float_impl_std` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: arguments to this function are incorrect
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:57:17
+    |
+57  |                 <$t>::div_euclid(*self, *v)
+    |                 ^^^^^^^^^^^^^^^^ -----  -- expected `&f32`, found `f32`
+    |                                  |
+    |                                  expected `&f32`, found `f32`
+...
+127 | euclid_forward_impl!(f32 f64);
+    | ----------------------------- in this macro invocation
+    |
+note: associated function defined here
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:23:8
+    |
+23  |     fn div_euclid(&self, v: &Self) -> Self;
+    |        ^^^^^^^^^^
+    = note: this error originates in the macro `euclid_forward_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider borrowing here
+    |
+57  |                 <$t>::div_euclid(&*self, *v)
+    |                                  ~~~~~~
+help: consider borrowing here
+    |
+57  |                 <$t>::div_euclid(*self, &*v)
+    |                                         ~~~
+
+error[E0308]: arguments to this function are incorrect
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:62:17
+    |
+62  |                 <$t>::rem_euclid(*self, *v)
+    |                 ^^^^^^^^^^^^^^^^ -----  -- expected `&f32`, found `f32`
+    |                                  |
+    |                                  expected `&f32`, found `f32`
+...
+127 | euclid_forward_impl!(f32 f64);
+    | ----------------------------- in this macro invocation
+    |
+note: associated function defined here
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:48:8
+    |
+48  |     fn rem_euclid(&self, v: &Self) -> Self;
+    |        ^^^^^^^^^^
+    = note: this error originates in the macro `euclid_forward_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider borrowing here
+    |
+62  |                 <$t>::rem_euclid(&*self, *v)
+    |                                  ~~~~~~
+help: consider borrowing here
+    |
+62  |                 <$t>::rem_euclid(*self, &*v)
+    |                                         ~~~
+
+error[E0308]: arguments to this function are incorrect
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:57:17
+    |
+57  |                 <$t>::div_euclid(*self, *v)
+    |                 ^^^^^^^^^^^^^^^^ -----  -- expected `&f64`, found `f64`
+    |                                  |
+    |                                  expected `&f64`, found `f64`
+...
+127 | euclid_forward_impl!(f32 f64);
+    | ----------------------------- in this macro invocation
+    |
+note: associated function defined here
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:23:8
+    |
+23  |     fn div_euclid(&self, v: &Self) -> Self;
+    |        ^^^^^^^^^^
+    = note: this error originates in the macro `euclid_forward_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider borrowing here
+    |
+57  |                 <$t>::div_euclid(&*self, *v)
+    |                                  ~~~~~~
+help: consider borrowing here
+    |
+57  |                 <$t>::div_euclid(*self, &*v)
+    |                                         ~~~
+
+error[E0308]: arguments to this function are incorrect
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:62:17
+    |
+62  |                 <$t>::rem_euclid(*self, *v)
+    |                 ^^^^^^^^^^^^^^^^ -----  -- expected `&f64`, found `f64`
+    |                                  |
+    |                                  expected `&f64`, found `f64`
+...
+127 | euclid_forward_impl!(f32 f64);
+    | ----------------------------- in this macro invocation
+    |
+note: associated function defined here
+   --> /home/sjm/.cargo/registry/src/github.com-1ecc6299db9ec823/num-traits-0.2.15/src/ops/euclid.rs:48:8
+    |
+48  |     fn rem_euclid(&self, v: &Self) -> Self;
+    |        ^^^^^^^^^^
+    = note: this error originates in the macro `euclid_forward_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider borrowing here
+    |
+62  |                 <$t>::rem_euclid(&*self, *v)
+    |                                  ~~~~~~
+help: consider borrowing here
+    |
+62  |                 <$t>::rem_euclid(*self, &*v)
+    |                                         ~~~
+
+Some errors have detailed explanations: E0034, E0308, E0463.
+For more information about an error, try `rustc --explain E0034`.
+error: could not compile `num-traits` due to 37 previous errors
+warning: build failed, waiting for other jobs to finish...
