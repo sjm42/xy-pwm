@@ -223,7 +223,7 @@ mod app {
         );
         #[cfg(feature = "black_pill")]
         let (mut ch1, mut ch2, mut ch3, mut ch4) =
-            Timer::new(dp.TIM2, &clocks).pwm_hz(pins, 10.kHz()).split();
+            Timer::new(dp.TIM2, &clocks).pwm_hz(pins, 100.kHz()).split();
 
         ch1.set_duty(0);
         ch2.set_duty(0);
@@ -277,20 +277,22 @@ mod app {
             DRW.replace(Drawing::new());
             DRW.as_mut()
                 .unwrap()
-                .add(Element::new_line([-1.0, -1.0].into(), [-1.0, 1.0].into()));
+                .add(Element::new_line([0.0, -1.0].into(), [-1.0, 0.0].into()));
             DRW.as_mut()
                 .unwrap()
-                .add(Element::new_line([-1.0, 1.0].into(), [1.0, 1.0].into()));
+                .add(Element::new_line([-1.0, 0.0].into(), [0.0, 1.0].into()));
             DRW.as_mut()
                 .unwrap()
-                .add(Element::new_line([1.0, 1.0].into(), [1.0, -1.0].into()));
+                .add(Element::new_line([0.0, 1.0].into(), [1.0, 0.0].into()));
             DRW.as_mut()
                 .unwrap()
-                .add(Element::new_line([1.0, -1.0].into(), [-1.0, -1.0].into()));
+                .add(Element::new_line([1.0, 0.0].into(), [0.0, -1.0].into()));
             write!(ser_tx, "drw: {:?}\r\n", DRW.as_ref().unwrap()).ok();
+            /*
             for p in DRW.as_mut().unwrap().into_iter() {
                 write!(ser_tx, "{p:?}\r\n").ok();
             }
+            */
         }
 
         // Set "busy" pin up each 100ms, feed the watchdog
@@ -500,7 +502,7 @@ mod app {
         }
 
         led_blink::spawn(10).ok();
-        hello::spawn_after(20u64.millis()).ok();
+        hello::spawn_after(10u64.millis()).ok();
     }
 
     #[task(priority = 1, capacity = 2, shared=[serial_tx])]
@@ -511,13 +513,13 @@ mod app {
                 // tx.lock(|tx| write!(tx, "draw iter start.\r\n").ok());
                 DRW_ITER.replace(DRW.as_mut().unwrap().into_iter());
                 // tx.lock(|tx| write!(tx, "draw iter:\r\n{:?}\r\n", DRW_ITER.as_ref().unwrap()).ok());
-                led_blink::spawn(10).ok();
+                led_blink::spawn(5).ok();
             }
 
             if let Some(v) = DRW_ITER.as_mut().unwrap().next() {
-                // we KNOW x,y are betweem -1.0 ... +1.0 here
-                let pwm1 = (v.x + 1.0 * 128.0).min(255.0) as u8;
-                let pwm2 = (v.y + 1.0 * 128.0).min(255.0) as u8;
+                // x,y must be betweem -1.0 ... +1.0 here
+                let pwm1 = ((v.x + 1.0) * 128.0).max(0.0).min(255.0) as u8;
+                let pwm2 = ((v.y + 1.0) * 128.0).max(0.0).min(255.0) as u8;
                 set_pwm::spawn(CMD_OFFSET + 1, pwm1).ok();
                 set_pwm::spawn(CMD_OFFSET + 2, pwm2).ok();
             } else {

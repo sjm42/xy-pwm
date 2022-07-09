@@ -7,7 +7,7 @@ extern crate no_std_compat as std;
 use glam::*;
 use std::vec::Vec;
 
-const STEPSZ: f32 = 0.1;
+const STEPSZ: f32 = 0.05;
 
 /*
 pub struct Point2 {
