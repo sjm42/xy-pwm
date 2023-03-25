@@ -6,7 +6,7 @@ edition = "2021"
 resolver = "2"
 readme = "README.md"
 name = "xy-pwm"
-version = "0.1.2"
+version = "0.1.3"
 
 
 [features]
@@ -31,7 +31,7 @@ features = ["rt", "stm32f103"]
 # Working
 [dependencies.stm32f4xx-hal]
 optional = true
-version = "0.14"
+version = "0.15"
 features = ["rt", "stm32f411", "usb_fs"]
 
 
